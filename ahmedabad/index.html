@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D74LPRXWDW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-D74LPRXWDW');</script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Public washrooms in Ahmedabad — Live Map &amp; Areas</title>
+<meta name="description" content="Live map of public washrooms in Delhi, Mumbai, Bengaluru, Hyderabad, Chennai and 10+ more Indian cities. Free/paid, 24-hour and accessible washrooms with DIGIPIN directions.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://washroomsnearme.pages.dev/ahmedabad/">
+<meta property="og:title" content="Public washrooms in Ahmedabad — Live Map &amp; Areas">
+<meta property="og:image" content="https://washroomsnearme.pages.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://washroomsnearme.pages.dev/og-image.png">
+
+<meta property="og:description" content="Live map of public washrooms in Delhi, Mumbai, Bengaluru, Hyderabad, Chennai and 10+ more Indian cities. Free/paid, 24-hour and accessible washrooms with DIGIPIN directions.">
+<meta property="og:type" content="website">
+<!--GSC-VERIFY-->
+<!--MONETAG-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/theme.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0F172A">
+</head>
+<body>
+<!-- BLOCK:HEADER -->
+<header id="block-header"><div class="wrap"><img class="brandlogo" src="/favicon.svg" alt="Washrooms Near Me" width="40" height="40"><div><b>Washrooms Near Me</b><small>SKM Studio Network · live OSM data · DIGIPIN directions</small></div></div></header>
+<!-- /BLOCK:HEADER -->
+<!-- BLOCK:HERO -->
+<div class="hero" id="block-hero"><div class="wrap">
+<h1 id="block-hero-h1">Public washrooms near you — live map</h1>
+<p>Pick your city, tap a pin and get exact directions on the map itself — every spot has a DIGIPIN (4m precision). Crowd-sourced, refreshed monthly.</p>
+<div class="search"><input id="q" placeholder="Search by name / area / operator…"><button id="locbtn">📍 Near me</button></div>
+<div class="chips" id="chips"></div>
+</div></div>
+<!-- /BLOCK:HERO -->
+<div class="wrap">
+<!-- BLOCK:MAPBAR -->
+<div class="mapbar" id="block-mapbar"><span id="count">Pick a city…</span><span id="routeinfo"></span><span id="filters"></span><button class="fbtn" id="addbtn">➕ Add a missing spot</button></div>
+<!-- /BLOCK:MAPBAR -->
+<div id="addhint">📍 Now click the exact spot on the map — we'll generate its DIGIPIN and a suggestion you can submit for review.</div>
+<div id="map"></div>
+<div class="legend">● green = free · tap any pin → DIGIPIN + 🧭 directions drawn right here on the map · data © OpenStreetMap contributors (ODbL)</div>
+<div id="toast"></div>
+<!-- BLOCK:CONTENT -->
+<main id="block-content">
+<!-- BLOCK:CARD-public-washrooms-in-ahmedabad -->
+<div id="block-public-washrooms-in-ahmedabad" class="card"><h2>Public washrooms in Ahmedabad</h2>
+<p>Ahmedabad&#x27;s bazaars and new-town malls both covered — every mapped washroom on one live map, filterable by your needs.</p>
+<p>The map above shows <b><span id="citycount">…</span> washrooms</b> currently mapped across Ahmedabad — filter by your needs, tap a pin for its <b>DIGIPIN</b>, then tap <b>🧭 Directions</b> to draw the route on the map itself.</p>
+<div class="areas"><span class="area">Maninagar</span><span class="area">Navrangpura</span><span class="area">Satellite</span><span class="area">CG Road</span><span class="area">Chandkheda</span></div>
+<p class="legend" style="margin-top:10px">Popular Ahmedabad areas with mapped washrooms — zoom into any of them on the map.</p></div>
+<!-- /BLOCK:CARD-public-washrooms-in-ahmedabad -->
+<!-- BLOCK:CARD-the-fastest-ways-to-find-a-washroom-nearby -->
+<div id="block-the-fastest-ways-to-find-a-washroom-nearby" class="card"><h2>🗺 The fastest ways to find a washroom nearby</h2>
+<p>Google Maps is the most reliable tool in India. Open the app or website and search <b>"public washroom near me"</b>, "restroom near me" or "Sulabh washroom near me". Results usually include:</p>
+<ul><li>Distance and walking time from your current location</li><li>Opening hours (many public washrooms close at night)</li><li>User ratings and photos — the fastest way to judge cleanliness</li></ul>
+<p>If nothing shows up, search for <b>nearby landmarks instead</b>: "petrol pump", "metro station", "railway station", "bus stand", "mall" or "hotel". All of these have restrooms, and most allow non-customers to use them, sometimes for a small fee.</p></div>
+<!-- /BLOCK:CARD-the-fastest-ways-to-find-a-washroom-nearby -->
+<!-- BLOCK:CARD-public-washrooms-in-india-what-to-expect -->
+<div id="block-public-washrooms-in-india-what-to-expect" class="card"><h2>🇮🇳 Public washrooms in India — what to expect</h2>
+<p>India has expanded public sanitation massively under the <b>Swachh Bharat Mission</b>. You will generally find three kinds of facilities:</p>
+<h3>1. Free community / public washrooms</h3><p>Built and maintained by municipal bodies. Free or nominally priced, found near markets, bus stands and slum-adjacent areas. Cleanliness varies — check recent Google Maps reviews.</p>
+<h3>2. Pay-and-use washrooms (Sulabh and similar)</h3><p>Operated by NGOs and private agencies — a small fee (typically ₹5, sometimes ₹10) gets you a cleaner, attended facility with water and soap. Sulabh International operates thousands across India.</p>
+<h3>3. Facility washrooms (malls, metros, petrol pumps)</h3><p>Often the cleanest and safest option. Malls and metro stations have well-maintained restrooms; highway petrol pumps increasingly have food courts and restrooms.</p></div>
+<!-- /BLOCK:CARD-public-washrooms-in-india-what-to-expect -->
+<!-- BLOCK:CARD-women-children-accessibility -->
+<div id="block-women-children-accessibility" class="card"><h2>👩 Women, children & accessibility</h2>
+<ul><li>Many community washrooms have <b>separate women's sections</b> — look for "Mahila" signage or female attendants.</li>
+<li>Swachh Bharat guidelines require accessible washrooms for persons with disabilities in public facilities.</li>
+<li>When travelling at night, prefer lit, attended facilities inside petrol pumps, hotels or 24×7 chains rather than dark standalone public washrooms.</li></ul></div>
+<!-- /BLOCK:CARD-women-children-accessibility -->
+<!-- BLOCK:CARD-public-washrooms-in-ahmedabad-faq -->
+<div id="block-public-washrooms-in-ahmedabad-faq" class="card"><h2>❓ Public washrooms in Ahmedabad — FAQ</h2><details><summary>How do I find a public washroom near me right now?</summary><p>Open Google Maps and search 'public washroom near me' or 'restroom near me'. You'll see the nearest options with hours and photos. Petrol pumps, metro stations and malls are reliable fallbacks.</p></details><details><summary>Are public washrooms in India free?</summary><p>Many community washrooms are free or cost a token amount. Pay-and-use washrooms (like Sulabh facilities) typically charge ₹5–₹10 and are usually cleaner.</p></details><details><summary>Which apps show public washrooms?</summary><p>Google Maps is the most complete in India. Simply search 'public washroom' or 'restroom' — no special app is needed.</p></details><details><summary>Are there separate washrooms for women?</summary><p>Yes — most public and pay-and-use washrooms have separate women's sections, often marked 'Mahila', and many have female attendants.</p></details></div>
+<!-- /BLOCK:CARD-public-washrooms-in-ahmedabad-faq -->
+<!-- BLOCK:CARD-other-cities -->
+<div id="block-other-cities" class="card"><h2>🗺 Other cities</h2><div class="cities"><a href="/delhi/">Delhi</a><a href="/mumbai/">Mumbai</a><a href="/bengaluru/">Bengaluru</a><a href="/hyderabad/">Hyderabad</a><a href="/chennai/">Chennai</a><a href="/kolkata/">Kolkata</a><a href="/pune/">Pune</a><a href="/ahmedabad/">Ahmedabad</a><a href="/jaipur/">Jaipur</a><a href="/lucknow/">Lucknow</a><a href="/surat/">Surat</a><a href="/indore/">Indore</a><a href="/chandigarh/">Chandigarh</a><a href="/bhopal/">Bhopal</a><a href="/nagpur/">Nagpur</a></div></div>
+<!-- /BLOCK:CARD-other-cities -->
+</div><!-- BLOCK:CARD-popular-guides -->
+<div id="block-popular-guides" class="card" style="border:2px dashed #cbd5e1"><h2>📚 Popular guides</h2><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px"><a href="/" style="background:#0d9488;color:#fff;font-weight:800;padding:11px 20px;border-radius:11px;text-decoration:none;font-size:.95rem;box-shadow:0 3px 10px rgba(0,0,0,.15)">🗺 Open the live map</a><a href="/pay-and-use-washrooms-near-me/" style="border:2px solid #0d9488;color:#0f172a;font-weight:700;padding:9px 16px;border-radius:11px;text-decoration:none;font-size:.88rem;background:#fff">Pay and use washrooms near me</a><a href="/free-public-washrooms-near-me/" style="border:2px solid #0d9488;color:#0f172a;font-weight:700;padding:9px 16px;border-radius:11px;text-decoration:none;font-size:.88rem;background:#fff">Free public washrooms near me</a><a href="/public-washrooms-near-me-open-now/" style="border:2px solid #0d9488;color:#0f172a;font-weight:700;padding:9px 16px;border-radius:11px;text-decoration:none;font-size:.88rem;background:#fff">Public washrooms near me open now</a><a href="/sulabh-washrooms-near-me/" style="border:2px solid #0d9488;color:#0f172a;font-weight:700;padding:9px 16px;border-radius:11px;text-decoration:none;font-size:.88rem;background:#fff">Sulabh washrooms near me</a><a href="/public-washrooms-at-malls/" style="border:2px solid #0d9488;color:#0f172a;font-weight:700;padding:9px 16px;border-radius:11px;text-decoration:none;font-size:.88rem;background:#fff">Public washrooms at malls</a><a href="/washrooms-at-railway-stations/" style="border:2px solid #0d9488;color:#0f172a;font-weight:700;padding:9px 16px;border-radius:11px;text-decoration:none;font-size:.88rem;background:#fff">Washrooms at railway stations</a><a href="/wheelchair-accessible-washrooms-near-me/" style="border:2px solid #0d9488;color:#0f172a;font-weight:700;padding:9px 16px;border-radius:11px;text-decoration:none;font-size:.88rem;background:#fff">Wheelchair accessible washrooms near me</a><a href="/washrooms-at-petrol-pumps/" style="border:2px solid #0d9488;color:#0f172a;font-weight:700;padding:9px 16px;border-radius:11px;text-decoration:none;font-size:.88rem;background:#fff">Washrooms at petrol pumps</a></div></div>
+<!-- /BLOCK:CARD-popular-guides --></main>
+<!-- /BLOCK:CONTENT -->
+<!-- BLOCK:FOOTER -->
+<footer id="block-footer">Washrooms Near Me — an SKM Studio Network site · <a href="https://washroomsnearme.pages.dev/">https://washroomsnearme.pages.dev</a> · Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL)<br>
+General information only · Emergency? Call <b>112</b> · <a href="/privacy/">Privacy</a> · <a href="/about/">About</a></footer>
+<!-- /BLOCK:FOOTER -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>window.CFG={"cities": {"delhi": {"name": "Delhi", "lat": 28.61, "lon": 77.21}, "mumbai": {"name": "Mumbai", "lat": 19.08, "lon": 72.88}, "bengaluru": {"name": "Bengaluru", "lat": 12.97, "lon": 77.59}, "hyderabad": {"name": "Hyderabad", "lat": 17.39, "lon": 78.49}, "chennai": {"name": "Chennai", "lat": 13.08, "lon": 80.27}, "kolkata": {"name": "Kolkata", "lat": 22.57, "lon": 88.36}, "pune": {"name": "Pune", "lat": 18.52, "lon": 73.86}, "ahmedabad": {"name": "Ahmedabad", "lat": 23.03, "lon": 72.58}, "jaipur": {"name": "Jaipur", "lat": 26.91, "lon": 75.79}, "lucknow": {"name": "Lucknow", "lat": 26.85, "lon": 80.95}, "surat": {"name": "Surat", "lat": 21.17, "lon": 72.83}, "indore": {"name": "Indore", "lat": 22.72, "lon": 75.86}, "chandigarh": {"name": "Chandigarh", "lat": 30.73, "lon": 76.78}, "bhopal": {"name": "Bhopal", "lat": 23.26, "lon": 77.41}, "nagpur": {"name": "Nagpur", "lat": 21.15, "lon": 79.09}}, "filters": [{"k": "h24", "l": "24 hours", "t": "p['opening_hours']=='24/7'"}, {"k": "free", "l": "Free", "t": "p['fee']=='no'"}, {"k": "acc", "l": "Wheelchair \u267f", "t": "p['wheelchair']=='yes'||p['wheelchair']=='limited'"}, {"k": "baby", "l": "Baby change", "t": "p['changing_table']=='yes'"}], "popup": [{"k": "operator", "l": "Operator"}, {"k": "opening_hours", "l": "Hours"}, {"k": "fee", "l": "Fee", "b": 1}, {"k": "access", "l": "Access"}, {"k": "wheelchair", "l": "Wheelchair", "b": 1}, {"k": "changing_table", "l": "Baby change", "b": 1}], "poiname": "washroom", "ac": "#0d9488", "data": null, "startCity": "ahmedabad"};</script>
+<script src="/mapapp.js" defer></script>
+<script defer src="/feedback.js" data-site="washrooms"></script></body>
+</html>
