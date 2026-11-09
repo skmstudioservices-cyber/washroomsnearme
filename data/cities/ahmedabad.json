@@ -1,0 +1,72 @@
+[
+ {
+  "id": "osm-node-14067832712",
+  "name": "Smart Public Toilet",
+  "city": "ahmedabad",
+  "area": "Gandhi Road",
+  "facility_type": "public",
+  "lat": 23.0242738,
+  "lon": 72.5883637,
+  "amenities": [],
+  "access": "unknown",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/node/14067832712",
+  "verified_at": "2026-11-09"
+ },
+ {
+  "id": "osm-node-6379360518",
+  "name": "Sulabh Complex",
+  "city": "ahmedabad",
+  "area": "Ahmedabad - Indore Road",
+  "facility_type": "public",
+  "lat": 22.704674,
+  "lon": 75.8180344,
+  "amenities": [
+   "women_only"
+  ],
+  "access": "free",
+  "hours": "Mo-Su 4:00-22:00",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/node/6379360518",
+  "verified_at": "2026-11-09"
+ },
+ {
+  "id": "osm-node-6379360523",
+  "name": "Sulabh Complex",
+  "city": "ahmedabad",
+  "area": "Ahmedabad - Indore Road",
+  "facility_type": "public",
+  "lat": 22.7048522,
+  "lon": 75.8160817,
+  "amenities": [
+   "women_only"
+  ],
+  "access": "free",
+  "hours": "Mo-Su 4:00-22:00",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/node/6379360523",
+  "verified_at": "2026-11-09"
+ },
+ {
+  "id": "osm-node-6379360533",
+  "name": "Sulabh Complex",
+  "city": "ahmedabad",
+  "area": "Ahmedabad - Indore Road",
+  "facility_type": "public",
+  "lat": 22.7091315,
+  "lon": 75.8189115,
+  "amenities": [
+   "women_only"
+  ],
+  "access": "free",
+  "hours": "24/7",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/node/6379360533",
+  "verified_at": "2026-11-09"
+ }
+]

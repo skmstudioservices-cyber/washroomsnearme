@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Washroom Near Me — Find a Clean Public Washroom in India" description="Find a clean washroom near you in Indian cities, filtered by what you actually need: baby changing, women-only, wheelchair access.">
+  <section class="wrap hero"><h1 class="h1">Washroom near me</h1></section>
+  <section class="wrap section">
+    <p class="lede">The cleanest washrooms in Indian cities are inside malls, metro stations, airports and hospitals. Pick your city, then filter by amenity.</p>
+    <h2 class="h2" id="women-only">Women-only washrooms</h2>
+    <p>Most public and pay-and-use facilities have a separate women's section, often marked “Mahila”. Where a facility is tagged women-only in the source data, we show it — and we do not claim it where the source is silent.</p>
+    <h2 class="h2" id="free">Free vs paid</h2>
+    <p>Municipal community washrooms are usually free or nominally priced. Pay-and-use facilities, including Sulabh complexes, typically charge ₹5–₹10 and are attended. We label access as “not recorded” rather than guess.</p>
+    <h2 class="h2" id="near-me">Finding the nearest one</h2>
+    <p>Open a city page and the map centres on the recorded facilities there. Every pin links back to its OpenStreetMap source.</p>
+    <p><a class="btn" href="/">Browse cities</a></p>
+  </section>
+</Base>
+<style>
+  .hero { padding: clamp(1.8rem, 5vw, 3rem) 0 .5rem; }
+  .section { padding: 1.5rem 0 2.5rem; max-width: 46rem; }
+  .section p, .section li { line-height: 1.65; color: var(--color-ink-soft); }
+  .section h2 { margin-top: 1.8rem; }
+</style>

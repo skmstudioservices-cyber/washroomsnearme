@@ -1,0 +1,68 @@
+[
+ {
+  "id": "osm-node-3215563889",
+  "name": "public toilet",
+  "city": "mumbai",
+  "area": "Road 9",
+  "facility_type": "public",
+  "lat": 19.0596074,
+  "lon": 72.9244829,
+  "amenities": [],
+  "access": "unknown",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/node/3215563889",
+  "verified_at": "2026-11-09"
+ },
+ {
+  "id": "osm-node-6212726037",
+  "name": "Washroom",
+  "city": "mumbai",
+  "area": "Powai",
+  "facility_type": "public",
+  "lat": 19.1305001,
+  "lon": 72.9163747,
+  "amenities": [],
+  "access": "unknown",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/node/6212726037",
+  "verified_at": "2026-11-09"
+ },
+ {
+  "id": "osm-way-1481731213",
+  "name": "Sulabh Toilet Complex",
+  "city": "mumbai",
+  "area": "Balasaheb Sawant Road",
+  "facility_type": "public",
+  "lat": 19.1202933,
+  "lon": 72.8267956,
+  "amenities": [
+   "women_only"
+  ],
+  "access": "unknown",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/way/1481731213",
+  "verified_at": "2026-11-09"
+ },
+ {
+  "id": "osm-way-1311283734",
+  "name": "toilet",
+  "city": "mumbai",
+  "area": "Khar",
+  "facility_type": "public",
+  "lat": 19.0547184,
+  "lon": 72.8239269,
+  "amenities": [],
+  "access": "unknown",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/way/1311283734",
+  "verified_at": "2026-11-09"
+ }
+]

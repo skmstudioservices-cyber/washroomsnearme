@@ -1,0 +1,110 @@
+---
+import Base from '../../layouts/Base.astro';
+import FacilityMap from '../../components/map/FacilityMap.astro';
+import { cities, cityBySlug, facetsFor, label, FACET_MIN } from '../../lib/data';
+
+export function getStaticPaths() { return cities.map((c) => ({ params: { city: c.slug } })); }
+
+const c = cityBySlug(Astro.params.city as string)!;
+const facets = facetsFor(c.facilities);
+const groups = [
+  { kind: 'type', items: facets.filter((f) => f.kind === 'type') },
+  { kind: 'amenity', items: facets.filter((f) => f.kind === 'amenity') },
+];
+const faq = [
+  [`Where can I find a clean washroom in ${c.name}?`, 'Malls, metro stations, hospitals and fuel stations are the most reliable. Every facility below carries its source and the date it was last verified.'],
+  [`Which malls in ${c.name} have baby changing facilities?`, c.facilities.some((f) => f.amenities.includes('baby_changing')) ? 'Some recorded facilities carry baby changing — use the baby-changing filter.' : 'None of the currently recorded facilities are tagged with baby changing. We do not claim it where the source is silent.'],
+  [`Are there women-only washrooms in ${c.name}?`, c.facilities.some((f) => f.amenities.includes('women_only')) ? 'Yes — filter by women-only to see them.' : 'Not recorded yet for this city.'],
+  [`Can I use a hotel washroom without being a guest?`, 'Often yes for a small charge, but it varies by property. Ask at reception — we do not record access we cannot verify.'],
+];
+const schema = [
+  { '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://washroomsnearme.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: c.name, item: `https://washroomsnearme.pages.dev/${c.slug}/` } ] },
+  { '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+];
+---
+<Base title={`Washrooms in ${c.name} — ${c.count} Recorded Facilities`}
+      description={`Public washrooms in ${c.name}: ${c.count} recorded facilities with amenity and access details, each sourced. Filter by mall, metro, hospital, baby changing or wheelchair access.`}
+      schema={schema}>
+  <nav class="wrap crumbs"><a href="/">Home</a> <span>/</span> <span>{c.name}</span></nav>
+
+  <section class="hero wrap">
+    <h1 class="h1">Washrooms in {c.name}</h1>
+    <p class="lede">{c.count} recorded facilities in {c.name}, {c.state}. Facility type and amenities first, distance last.</p>
+  </section>
+
+  <section class="wrap section">
+    <h2 class="h2">Map of recorded washrooms</h2>
+    {c.facilities.length > 0
+      ? <FacilityMap facilities={c.facilities} />
+      : <p class="lede">No facilities recorded yet for {c.name}. We add what we can source.</p>}
+  </section>
+
+  <section class="wrap section">
+    <h2 class="h2">Browse by what you need</h2>
+    {facets.length === 0
+      ? <p class="lede">Not enough facilities recorded yet to split {c.name} by type or amenity. Everything we have is listed below.</p>
+      : groups.map((g) => g.items.length ? (
+          <div class="facet-row">
+            <p class="facet-head">{g.kind === 'type' ? 'By facility type' : 'By amenity'}</p>
+            <div class="chips">
+              {g.items.map((f) => <a class="chip" href={`/${c.slug}/${f.key}/`}>{label(f.key)} <span>{f.count}</span></a>)}
+            </div>
+          </div>
+        ) : null)}
+  </section>
+
+  <section class="wrap section">
+    <h2 class="h2">All recorded facilities</h2>
+    <div class="grid-cards">
+      {c.facilities.map((f) => (
+        <article class="card">
+          <h3>{f.name}</h3>
+          <p class="loc">{f.area || c.name} · {label(f.facility_type)}</p>
+          <div class="tags">
+            {f.amenities.length ? f.amenities.map((a) => <span class="tag">{label(a)}</span>)
+              : <span class="tag tag-muted">Amenities not recorded</span>}
+          </div>
+          <dl class="facts">
+            <div><dt>Access</dt><dd>{f.access === 'unknown' ? 'not recorded' : f.access}</dd></div>
+            <div><dt>Hours</dt><dd>{f.hours}</dd></div>
+          </dl>
+          <p class="src">Source: <a href={f.source_url} rel="noopener nofollow" target="_blank">{f.source}</a> · verified {f.verified_at}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <h2 class="h2">Questions about washrooms in {c.name}</h2>
+    <div class="faq">{faq.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</div>
+  </section>
+</Base>
+
+<style>
+  .crumbs { padding-top: 1rem; font-size: .85rem; color: var(--color-ink-soft); display: flex; gap: .4rem; }
+  .crumbs a { color: var(--color-ink-soft); text-decoration: none; }
+  .hero { padding: 1.2rem 0 .5rem; }
+  .section { padding: 1.8rem 0; }
+  .facet-row { margin-bottom: 1.2rem; }
+  .facet-head { font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; color: var(--color-ink-soft); font-weight: 600; margin: 0 0 .5rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .chip { display: inline-flex; gap: .4rem; align-items: center; min-height: 44px; padding: 0 .85rem;
+    border: 1px solid var(--color-line); border-radius: 999px; background: #fff; text-decoration: none;
+    color: var(--color-ink); font-size: .9rem; font-weight: 500; }
+  .chip span { color: var(--color-teal); font-weight: 600; font-size: .82rem; }
+  .card h3 { font-size: .98rem; font-weight: 650; margin: 0 0 .25rem; line-height: 1.35; }
+  .loc { margin: 0 0 .6rem; font-size: .86rem; color: var(--color-ink-soft); }
+  .tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .7rem; }
+  .facts { display: grid; gap: .25rem; margin: 0 0 .6rem; font-size: .84rem; }
+  .facts div { display: flex; gap: .4rem; }
+  .facts dt { color: var(--color-ink-soft); min-width: 4.4rem; margin: 0; }
+  .facts dd { margin: 0; }
+  .src { font-size: .72rem; color: var(--color-ink-soft); margin: 0; border-top: 1px solid var(--color-line); padding-top: .5rem; }
+  .src a { color: var(--color-ink-soft); }
+  .faq { display: grid; gap: .5rem; margin-top: 1rem; max-width: 48rem; }
+  details { background: #fff; border: 1px solid var(--color-line); border-radius: 12px; padding: .9rem 1.1rem; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin: .6rem 0 0; color: var(--color-ink-soft); line-height: 1.55; }
+</style>

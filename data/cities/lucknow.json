@@ -1,0 +1,21 @@
+[
+ {
+  "id": "osm-node-13421220250",
+  "name": "Sulabh Toilet",
+  "city": "lucknow",
+  "area": "Kapoorthala Chauraha",
+  "facility_type": "public",
+  "lat": 26.882228,
+  "lon": 80.9477446,
+  "amenities": [
+   "wheelchair",
+   "women_only"
+  ],
+  "access": "unknown",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/node/13421220250",
+  "verified_at": "2026-11-09"
+ }
+]

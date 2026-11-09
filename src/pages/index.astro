@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import { cities, FACET_MIN } from '../lib/data';
+const total = cities.reduce((s, c) => s + c.count, 0);
+const schema = [{
+  '@type': 'WebSite', name: 'WashroomNearMe', url: 'https://washroomsnearme.pages.dev/',
+  potentialAction: { '@type': 'SearchAction', target: 'https://washroomsnearme.pages.dev/?q={search_term_string}', 'query-input': 'required name=search_term_string' },
+}];
+---
+<Base title="Washroom Near Me — Clean, Accessible Public Washrooms in India"
+      description="Find a clean public washroom near you in Indian cities. Filter by mall, metro, airport, hospital — and by baby changing, women-only and wheelchair access."
+      schema={schema}>
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="h1">Find a clean washroom near me</h1>
+      <p class="lede"><strong>Quick answer:</strong> the cleanest washrooms in Indian cities are inside malls, metro stations, airports and hospitals. Filter by what you actually need — baby changing, women-only, wheelchair access — then check the distance.</p>
+      <div class="hero-actions">
+        <a class="btn" href="/washroom-near-me/">Find a washroom near me</a>
+        <a class="btn btn-ghost" href="#cities">Browse by city</a>
+      </div>
+      <p class="count">{total} facilities recorded across {cities.length} cities — every one sourced from OpenStreetMap.</p>
+    </div>
+  </section>
+
+  <section class="wrap section" id="cities">
+    <h2 class="h2">Washrooms by city</h2>
+    <div class="grid-cards">
+      {cities.map((c) => (
+        <a class="card city-card" href={`/${c.slug}/`}>
+          <h3>{c.name}</h3>
+          <span class="meta">{c.state}</span>
+          <span class="meta">{c.count} facilities recorded</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <h2 class="h2">What makes a washroom usable</h2>
+    <ul class="checklist">
+      <li><strong>Baby changing</strong> — the single most requested amenity, and the least recorded.</li>
+      <li><strong>Women-only</strong> — separate section, ideally with a female attendant.</li>
+      <li><strong>Wheelchair access</strong> — a ramp and a wide door, not just a wide cubicle.</li>
+      <li><strong>Access rules</strong> — free, paid, or customers only. We show “not recorded” rather than guess.</li>
+    </ul>
+  </section>
+
+  <section class="wrap section">
+    <h2 class="h2">Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary>Where can I find a clean washroom quickly?</summary><p>Malls, metro stations, airports and hospital lobbies are the most reliable. They are staffed, lit and usually free during opening hours.</p></details>
+      <details><summary>Are public washrooms in India free?</summary><p>Many are. Municipal community washrooms are free or nominally priced; pay-and-use facilities usually charge ₹5–₹10 and are attended. We mark access as “not recorded” when the source does not say.</p></details>
+      <details><summary>Which places have baby changing facilities?</summary><p>Malls and airports most often. Use the baby-changing filter — we only create that page for a city when at least {FACET_MIN} facilities carry the amenity.</p></details>
+      <details><summary>How many washrooms are recorded here?</summary><p>{total} across {cities.length} cities. This is a growing dataset — we add what we can source, not what we can invent.</p></details>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: clamp(2rem, 6vw, 4rem) 0 1rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+  .count { margin-top: 1rem; font-size: .88rem; color: var(--color-ink-soft); }
+  .section { padding: 2.2rem 0; }
+  .city-card { text-decoration: none; color: inherit; display: grid; gap: .3rem; }
+  .city-card h3 { font-size: 1.05rem; font-weight: 650; margin: 0; }
+  .meta { font-size: .82rem; color: var(--color-ink-soft); }
+  .checklist { list-style: none; padding: 0; display: grid; gap: .55rem; margin-top: 1rem; }
+  .checklist li { padding-left: 1.5rem; position: relative; line-height: 1.55; }
+  .checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--color-teal); font-weight: 700; }
+  .faq { display: grid; gap: .5rem; margin-top: 1rem; max-width: 48rem; }
+  details { background: #fff; border: 1px solid var(--color-line); border-radius: 12px; padding: .9rem 1.1rem; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin: .6rem 0 0; color: var(--color-ink-soft); line-height: 1.55; }
+</style>

@@ -1,0 +1,16 @@
+# WashroomNearMe
+
+> Public washrooms in Indian cities, organised by facility type and amenity — with a source on every facility.
+
+## What this site covers
+- 10 cities: Ahmedabad, Bengaluru, Chennai, Delhi, Hyderabad, Jaipur, Kolkata, Lucknow, Mumbai, Pune.
+- Filter by facility type (mall, metro, airport, hospital, office, fuel station) and by amenity (baby changing, women-only, family room, wheelchair, attendant).
+
+## Pages
+- / — hub and city list
+- /{city}/ — facilities in a city, with map
+- /{city}/{facet}/ — only where the city has 3 or more such facilities
+- /washroom-near-me/ · /about/ · /methodology/ · /privacy/
+
+## Data policy
+Amenities, access and hours are published only when sourced. Unverified values render as "not recorded".

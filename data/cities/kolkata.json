@@ -1,0 +1,54 @@
+[
+ {
+  "id": "osm-node-9406915490",
+  "name": "Public Toilet",
+  "city": "kolkata",
+  "area": "Rabindra Sarani",
+  "facility_type": "public",
+  "lat": 22.9419452,
+  "lon": 88.6355291,
+  "amenities": [
+   "unisex"
+  ],
+  "access": "unknown",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/node/9406915490",
+  "verified_at": "2026-11-09"
+ },
+ {
+  "id": "osm-node-9406915489",
+  "name": "Public Toilet",
+  "city": "kolkata",
+  "area": "Nagarukhra - Gopalnagar Road",
+  "facility_type": "public",
+  "lat": 22.9421679,
+  "lon": 88.6381509,
+  "amenities": [
+   "unisex"
+  ],
+  "access": "unknown",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/node/9406915489",
+  "verified_at": "2026-11-09"
+ },
+ {
+  "id": "osm-node-4368120292",
+  "name": "Pay Toilet",
+  "city": "kolkata",
+  "area": "Rafi Ahmad Kidwai Road",
+  "facility_type": "public",
+  "lat": 22.553748,
+  "lon": 88.356732,
+  "amenities": [],
+  "access": "unknown",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/node/4368120292",
+  "verified_at": "2026-11-09"
+ }
+]

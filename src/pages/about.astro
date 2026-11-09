@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="About WashroomNearMe" description="Who builds WashroomNearMe, what data it uses and how facilities are verified.">
+  <section class="wrap hero"><h1 class="h1">About WashroomNearMe</h1></section>
+  <section class="wrap section">
+    <p class="lede">WashroomNearMe lists public washrooms in Indian cities, organised by facility type and amenity rather than by distance alone.</p>
+    <p>Every facility carries a source. Where an amenity, access rule or opening time is not recorded, we say “not recorded” instead of guessing. A wrong claim about a baby-changing table is worse than no claim.</p>
+    <p>Data comes from OpenStreetMap contributors (ODbL). Reader submissions are reviewed before they appear.</p>
+  </section>
+</Base>
+<style>
+  .hero { padding: clamp(1.8rem, 5vw, 3rem) 0 .5rem; }
+  .section { padding: 1.5rem 0 2.5rem; max-width: 46rem; }
+  .section p, .section li { line-height: 1.65; color: var(--color-ink-soft); }
+  .section h2 { margin-top: 1.8rem; }
+</style>

@@ -1,0 +1,71 @@
+[
+ {
+  "id": "osm-way-1385293492",
+  "name": "Sulabh Shauchalaya Sankul",
+  "city": "pune",
+  "area": "Congress Bhavan Path",
+  "facility_type": "public",
+  "lat": 18.5231688,
+  "lon": 73.8547657,
+  "amenities": [],
+  "access": "unknown",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/way/1385293492",
+  "verified_at": "2026-11-09"
+ },
+ {
+  "id": "osm-way-1570586144",
+  "name": "Ladies Toilet",
+  "city": "pune",
+  "area": "Admiral Somnath Path",
+  "facility_type": "public",
+  "lat": 18.5197872,
+  "lon": 73.8150039,
+  "amenities": [
+   "women_only"
+  ],
+  "access": "free",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/way/1570586144",
+  "verified_at": "2026-11-09"
+ },
+ {
+  "id": "osm-way-664758827",
+  "name": "Gents Toilet",
+  "city": "pune",
+  "area": "Admiral Somnath Path",
+  "facility_type": "public",
+  "lat": 18.5197826,
+  "lon": 73.8149358,
+  "amenities": [],
+  "access": "free",
+  "hours": "not recorded",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/way/664758827",
+  "verified_at": "2026-11-09"
+ },
+ {
+  "id": "osm-way-359332213",
+  "name": "Swach Bharat Mission Toilet (SBM Toilet)",
+  "city": "pune",
+  "area": "Dehu - Alandi Road",
+  "facility_type": "public",
+  "lat": 18.6789006,
+  "lon": 73.8370674,
+  "amenities": [
+   "women_only",
+   "unisex"
+  ],
+  "access": "unknown",
+  "hours": "24/7",
+  "notes": "",
+  "source": "OpenStreetMap",
+  "source_url": "https://www.openstreetmap.org/way/359332213",
+  "verified_at": "2026-11-09"
+ }
+]

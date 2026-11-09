@@ -1,0 +1,50 @@
+---
+import 'leaflet/dist/leaflet.css';
+import type { Facility } from '../../lib/data';
+export interface Props { facilities: Facility[]; height?: string; }
+const { facilities, height = '380px' } = Astro.props;
+const points = facilities.map((f) => ({
+  lat: f.lat, lon: f.lon, name: f.name, area: f.area,
+  access: f.access, hours: f.hours, type: f.facility_type, amenities: f.amenities,
+}));
+---
+<div class="map-shell" data-height={height}>
+  <div id="facility-map" class="map-canvas" data-points={JSON.stringify(points)}
+       role="application" aria-label="Map of recorded washrooms"></div>
+</div>
+<style>
+  .map-canvas { height: var(--map-height, 380px); width: 100%; border-radius: 14px;
+    border: 1px solid var(--color-line); background: #eef2f1; z-index: 0; }
+  :global(.fac-pin) { background: var(--color-teal); border: 2px solid #fff; border-radius: 50%; box-shadow: 0 1px 4px rgba(0,0,0,.35); }
+  :global(.leaflet-popup-content) { font-size: .86rem; line-height: 1.45; }
+  :global(.leaflet-popup-content strong) { display: block; margin-bottom: .2rem; }
+  :global(.pop-meta) { color: #6b7280; font-size: .78rem; display: block; margin-top: .3rem; }
+</style>
+<script>
+  const el = document.getElementById('facility-map') as HTMLElement | null;
+  if (el) {
+    const shell = el.closest('.map-shell') as HTMLElement | null;
+    if (shell) el.style.setProperty('--map-height', shell.dataset.height || '380px');
+    const boot = async () => {
+      const L = (await import('leaflet')).default;
+      const pts = JSON.parse(el.dataset.points || '[]');
+      if (!pts.length) return;
+      const map = L.map(el, { scrollWheelZoom: false });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
+      const icon = L.divIcon({ className: 'fac-pin', iconSize: [14, 14] });
+      const b: [number, number][] = [];
+      for (const p of pts) {
+        b.push([p.lat, p.lon]);
+        L.marker([p.lat, p.lon], { icon }).addTo(map).bindPopup(
+          `<strong>${p.name}</strong>${p.area || ''}<span class="pop-meta">${p.type} · ${p.access} · ${p.hours}</span>`
+        );
+      }
+      if (b.length === 1) map.setView(b[0], 13); else map.fitBounds(b, { padding: [30, 30] });
+    };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); boot(); } }, { rootMargin: '200px' });
+      io.observe(el);
+    } else boot();
+  }
+</script>

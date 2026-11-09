@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import FacilityMap from '../../components/map/FacilityMap.astro';
+import { cities, cityBySlug, facetsFor, byFacet, label } from '../../lib/data';
+
+export function getStaticPaths() {
+  const out: any[] = [];
+  for (const c of cities) {
+    const full = cityBySlug(c.slug)!;
+    for (const f of facetsFor(full.facilities)) {
+      out.push({ params: { city: c.slug, facet: f.key }, props: { count: f.count } });
+    }
+  }
+  return out;
+}
+
+const c = cityBySlug(Astro.params.city as string)!;
+const facet = Astro.params.facet as string;
+const items = byFacet(c.facilities, facet);
+const name = label(facet);
+const isType = ['mall','metro','airport','hospital','office','fuel-station','public'].includes(facet);
+const heading = isType ? `${name} with washrooms in ${c.name}` : `${name} washrooms in ${c.name}`;
+---
+<Base title={`${heading} — ${items.length} Recorded`}
+      description={`${items.length} ${name.toLowerCase()} washrooms in ${c.name}. Each facility carries its source, access rules and amenities.`}>
+  <nav class="wrap crumbs">
+    <a href="/">Home</a> <span>/</span> <a href={`/${c.slug}/`}>{c.name}</a> <span>/</span> <span>{name}</span>
+  </nav>
+
+  <section class="hero wrap">
+    <h1 class="h1">{heading}</h1>
+    <p class="lede">{items.length} facilities recorded. Filtered from the {c.name} list — nothing here is generated, only sourced.</p>
+  </section>
+
+  <section class="wrap section"><FacilityMap facilities={items} /></section>
+
+  <section class="wrap section">
+    <div class="grid-cards">
+      {items.map((f) => (
+        <article class="card">
+          <h3>{f.name}</h3>
+          <p class="loc">{f.area || c.name}</p>
+          <div class="tags">
+            {f.amenities.length ? f.amenities.map((a) => <span class="tag">{label(a)}</span>)
+              : <span class="tag tag-muted">Amenities not recorded</span>}
+          </div>
+          <dl class="facts">
+            <div><dt>Access</dt><dd>{f.access === 'unknown' ? 'not recorded' : f.access}</dd></div>
+            <div><dt>Hours</dt><dd>{f.hours}</dd></div>
+          </dl>
+          <p class="src">Source: <a href={f.source_url} rel="noopener nofollow" target="_blank">{f.source}</a> · verified {f.verified_at}</p>
+        </article>
+      ))}
+    </div>
+    <p class="back"><a class="btn btn-ghost" href={`/${c.slug}/`}>All washrooms in {c.name}</a></p>
+  </section>
+</Base>
+
+<style>
+  .crumbs { padding-top: 1rem; font-size: .85rem; color: var(--color-ink-soft); display: flex; gap: .4rem; }
+  .crumbs a { color: var(--color-ink-soft); text-decoration: none; }
+  .hero { padding: 1.2rem 0 .5rem; }
+  .section { padding: 1.6rem 0; }
+  .card h3 { font-size: .98rem; font-weight: 650; margin: 0 0 .25rem; line-height: 1.35; }
+  .loc { margin: 0 0 .6rem; font-size: .86rem; color: var(--color-ink-soft); }
+  .tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .7rem; }
+  .facts { display: grid; gap: .25rem; margin: 0 0 .6rem; font-size: .84rem; }
+  .facts div { display: flex; gap: .4rem; }
+  .facts dt { color: var(--color-ink-soft); min-width: 4.4rem; margin: 0; }
+  .facts dd { margin: 0; }
+  .src { font-size: .72rem; color: var(--color-ink-soft); margin: 0; border-top: 1px solid var(--color-line); padding-top: .5rem; }
+  .back { margin-top: 1.4rem; }
+</style>
